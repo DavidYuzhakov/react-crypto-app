@@ -62,7 +62,7 @@ const assetsSlice = createSlice({
         state.status = Status.LOADING
       })
       .addCase(addAsset.fulfilled, (state, action) => {
-        state.items.push(action.payload)
+        state.items = [...state.items, action.payload]
         state.status = Status.SUCCESS
       })
       .addCase(addAsset.rejected, (state) => {
